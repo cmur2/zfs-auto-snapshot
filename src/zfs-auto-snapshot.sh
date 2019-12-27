@@ -582,16 +582,16 @@ done
 # because the SUNW program does. The dash character is the default.
 SNAPPROP="-o com.sun:auto-snapshot-desc='$opt_event'"
 
-# ISO style date; fifteen characters: YYYY-MM-DD-HHMM
+# ISO style date; fifteen characters: YYYY-MM-DD
 # On Solaris %H%M expands to 12h34.
 # We use the shortfirm -u here because --utc is not supported on macos.
-DATE=$(date -u +%F-%H%M)
+DATE=$(date -u +%F)
 
 # The snapshot name after the @ symbol.
 SNAPNAME="${opt_prefix:+$opt_prefix$opt_sep}${opt_label:+$opt_label}-$DATE"
 
-# The expression for matching old snapshots.  -YYYY-MM-DD-HHMM
-SNAPGLOB="${opt_prefix:+$opt_prefix$opt_sep}${opt_label:+$opt_label}-???????????????"
+# The expression for matching old snapshots.                        -YYYY-MM-DD
+SNAPGLOB="${opt_prefix:+$opt_prefix$opt_sep}${opt_label:+$opt_label}-??????????"
 
 if [ -n "$opt_do_snapshots" ]
 then
